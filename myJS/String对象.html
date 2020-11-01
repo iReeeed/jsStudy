@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String对象</title>
+</head>
+
+<body>
+    <script>
+        //string 与string对象，会自动转换，不同之处在于typeof时不一样，string可以通过.直接调用String对象上的属性或方法
+
+        // var str = new String("sasa sass a ");
+        // var str1 = "sasa";
+        // console.log(str);
+        // console.log(str1.indexOf("s"));
+        // console.log(typeof str, typeof str1);
+
+        //length属性  返回长度，包括空格
+        // console.log(str.length);
+
+        //String 对象的方法
+        //1、chatAt() 返回字符串中指定位置的字符
+        var str = 'abcdWSsdsd';
+        var str1 = '212121';
+        var str2 = 'dfsf545454';
+        // console.log(str.charAt(1));
+
+        //2、indexOf 返回某子字符串在字符串中首次出现的位置
+        // console.log(str.indexOf(3));
+        // console.log(str.lastIndexOf(3));
+        console.log(str);
+        // console.log(str.slice(0, 3));
+        // console.log(str.substr(0, 3));
+        // console.log(str.substring(0, 3));
+        console.log(str.toLowerCase());
+        console.log(str.toUpperCase());
+
+        console.log(str.concat(str1, str2));
+        console.log(str.split(""));
+        document.write(str.bold());
+    </script>
+
+</body>
+
+</html>

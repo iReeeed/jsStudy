@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>邮箱格式判断</title>
+</head>
+
+<body>
+    <script>
+        var emailAddr = prompt("请输入邮箱：");
+        var reg = /.+@.+\.com/;
+        var res = reg.test(emailAddr);
+        if (res) {
+            alert("welcome~");
+        } else {
+            alert("邮箱格式错误！");
+        }
+    </script>
+
+</body>
+
+</html>

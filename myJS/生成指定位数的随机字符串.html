@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>随机字符串</title>
+</head>
+
+<body>
+    <script>
+        var len = parseInt(prompt("请输入位数："));
+
+        function getRandomString(len) {
+            let chars = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDZXCFVGBHNJMKL~!@#$%^&*()_+=-:,./1234567890";
+            let charsLen = chars.length;
+            let res = "";
+            for (let i = 0; i < len; i++) {
+                res += chars.charAt(Math.floor(Math.random() * charsLen));
+            }
+            alert("生成的" + len + "位随机字符串为：" + res);
+        }
+        getRandomString(len);
+    </script>
+
+</body>
+
+</html>

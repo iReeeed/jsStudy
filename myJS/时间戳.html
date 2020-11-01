@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>时间戳</title>
+</head>
+
+<body>
+    <span>距离2020年10月20日还有：</span> <span class="span"></span>
+    <script>
+        function timesUp(year, month, day, hour, min, s) {
+            var str = "" + year + "-" + month + "-" + day + " " + hour + ":" + min + ":" + s;
+            var date = new Date(str);
+            date = date.valueOf();
+            var nowDate = Date.now();
+            var will = date - nowDate;
+            var day = Math.floor(will / (1000 * 60 * 60 * 24));
+            day = day < 10 ? '0' + day : day;
+            var hour = Math.floor(will / (1000 * 60 * 60)) % 24;
+            hour = hour < 10 ? '0' + hour : hour;
+            var min = Math.floor(will / (1000 * 60)) % 60;
+            min = min < 10 ? '0' + min : min;
+            var s = Math.floor(will / (1000)) % 60;
+            s = s < 10 ? '0' + s : s;
+            let res = day + "天" + hour + "小时" + min + "分钟" + s + "秒";
+            return res;
+        }
+        var myInterval = setInterval(() => {
+            let res = timesUp(2020, 10, 20, 0, 0, 0);
+            document.getElementsByClassName('span')[0].innerHTML = res;
+        }, 1000)
+
+        clearInterval(myInterval);
+    </script>
+
+</body>
+
+</html>

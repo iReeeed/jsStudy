@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Student(math, chinese, english, phisics, chemical) {
+            this.math = math;
+            this.chinese = chinese;
+            this.english = english;
+            this.phisics = phisics;
+            this.chemical = chemical;
+            this.logSCores = function() {
+                document.write("数学：" + this.math + " <br>语文：" + this.chinese + "<br>英语：" + this.english + "<br> 物理：" + this.phisics + "<br> 化学：" + this.chemical + "<br>");
+            };
+            this.getSum = function() {
+                let res = this.math + this.chinese + this.english + this.phisics + this.chemical;
+                document.write("---------<br>");
+                document.write("总分：" + res);
+            }
+
+        }
+        var student1 = new Student(66, 80, 65, 85, 93);
+        student1.logSCores();
+        student1.getSum();
+    </script>
+</body>
+
+</html>

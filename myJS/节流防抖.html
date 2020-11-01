@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>节流防抖</title>
+    <style>
+        .box {
+            height: 300px;
+            width: 300px;
+            background: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+
+    </div>
+
+    <script>
+        //防抖   百度联想搜索功能
+        // function ajax(content) {
+        //     console.info(this);
+        //     console.log("ajax request" + content);
+        // }
+
+        // function debounce(fun, delay) {
+        //     return function(args) {
+        //         let that = this;
+        //         let _args = args;
+        //         clearTimeout(fun.id);
+        //         fun.id = setTimeout(function() {
+        //             fun.call(that, args);
+        //         }, delay)
+        //     }
+        // }
+
+        // let inputb = document.getElementById('debounce');
+        // let ajaxDebounce = debounce(ajax, 500);
+        // inputb.addEventListener('keyup', function(e) {
+        //     ajaxDebounce(e.target.value);
+        // })
+
+        //节流
+        // function ajax(content) {
+        //     console.log('ajax request ' + content)
+        // }
+
+        // let throttle = function(fn, delay) {
+        //     let last, deferTimer
+        //     return function() {
+        //         let that = this
+        //         let _args = arguments
+        //         let now = +new Date() //现在的时间戳
+        //         if (last && now < (last + delay)) {
+        //             clearTimeout(deferTimer)
+        //             deferTimer = setTimeout(function() {
+        //                 last = now
+        //                 fn.apply(that, _args)
+        //             }, delay)
+        //         } else {
+        //             last = now
+        //             fn.apply(that, _args)
+        //         }
+        //     }
+        // }
+        // let throttleAjax = throttle(ajax, 1000)
+        // let throttleBtn = document.getElementById('throttle')
+        // throttleBtn.addEventListener('keyup', function(e) {
+        //     throttleAjax(e.target.value)
+        // })
+
+
+        function test() {
+            console.log("1" + new Date());
+        }
+
+        function debounce(fun) {
+            let timer = null;
+            return function() {
+                let that = this;
+                let agrs = arguments;
+                if (timer) return
+                timer = setTimeout(function() {
+                    fun.apply(that, agrs);
+                    timer = null;
+                }, 1000)
+            }
+        }
+        let box = document.getElementsByClassName('box')[0];
+        box.addEventListener('click', debounce(test));
+    </script>
+
+</body>
+
+</html>

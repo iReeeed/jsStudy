@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>猜数字</title>
+</head>
+
+<body>
+    <script>
+        document.write("猜数字：0~4为小，5~9为大<br>");
+        document.write("<input type='radio' name='radio' value='小'>小\t<input type='radio' name='radio' value='大'>大");
+        document.write("\t\t<input type='button' onclick='check()' value='猜一猜'>")
+
+        function check() {
+            var digit = Math.floor(Math.random() * 10);
+            var guess = document.getElementsByName('radio');
+            var guessVal = "";
+            for (let i = 0; i < guess.length; i++) {
+                if (guess[i].checked == true) {
+                    guessVal = guess[i].value;
+                }
+            }
+            if ((digit >= 5 && guessVal == "大") || (digit < 5 && guessVal == "小")) {
+                alert("随机数是：" + digit + "\n" + "您猜对了");
+            } else {
+                alert("随机数是：" + digit + "\n" + "您猜错了");
+            }
+        }
+    </script>
+
+</body>
+
+</html>

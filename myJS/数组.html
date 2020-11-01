@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组</title>
+</head>
+
+<body>
+    <script>
+        // var arr = [11, 22, 33, 44, 55];
+        // delete arr[1]; //delete数组的长度不变，[11,empty,33,44,55]
+        // console.log(arr);
+        // Array.prototype.getLength = function() {
+        //     console.log(this.length);
+        // };
+        // var arr = new Array(1, 2, 3);
+        // arr.getLength();
+        // var fn = arr.getLength.prototype.constructor;
+        // console.log(Object.prototype.toString.call(fn));
+
+        /* 数组的方法 */
+        //concat 返回值：新数组；  不改变原数组
+        var arr = [1, 2, 3];
+        var arr1 = [4, 5, 6];
+        // console.log(arr.concat(arr1));
+        // console.log(arr);
+
+        //push  在数组末尾添加元素，返回新的数组，改变原数组
+        // arr.push(7);
+        // console.log(arr);
+
+        //unshift  在数组开头添加元素，改变原数组
+        // arr.unshift(0);
+        // console.log(arr);
+
+        //pop  删除数组最后一个元素，并返回，改变原数组
+        // arr.pop();
+        // console.log(arr.pop());
+        // console.log(arr);
+
+        //shift  删除数组第一个元素并返回，改变原数组
+        // var x = arr.shift();
+        // console.log(x);
+        // console.log(arr);
+
+        //splice 删除数组指定的元素，或在指定位置添加元素，改变原数组 start开始位置，length是要删除的长度，
+        //第三个以及之后的参数是从 开始位置添加元素  如果不想删除只想添加，则第二个参数置为0 
+        // console.log(arr);
+        // arr.splice(1);
+        // console.log(arr);
+
+        //reverse() 改变原数组
+        // arr.reverse();
+        // console.log(arr);
+
+        //sort() 元素排序,默认按照编码顺序排序，可以添加比较函数指定排序规则 ，改变原数组
+        // let arr2 = [2, 10, 111, 30];
+        // arr2.sort(function(a, b) {
+        //     return a - b
+        // });
+        // console.log(arr2);
+
+        //slice 不改变原数组
+        // var nums = arr.slice(0, -1);
+        // console.log(arr);
+        // console.log(nums);
+
+        //join不改变原数组
+        // let newArr = arr.join("-");
+        // console.log(arr);
+        // console.log(newArr);
+
+        //toString 不改变原数组
+        // var newArr = arr.toLocaleString();
+        // console.log(arr);
+        // console.log(newArr);
+
+        // var newArr = new Array();
+        // console.log(newArr.__proto__ == Array.prototype);
+        // var fn = new Function();
+        // console.log(fn.__proto__ == Function.prototype);
+        // console.log(fn.__proto__);
+        // console.log(Function.prototype);
+
+        // console.log([].pop()); //undefined
+    </script>
+
+</body>
+
+</html>
+
+</html>

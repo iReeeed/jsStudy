@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let obj1 = {
+            a: 'a1',
+            b: function() {
+                let a = 'a2';
+
+                function d() {
+                    console.log(this.a);
+                }
+                return this.a
+            },
+            c: function(obj) {
+                obj = {
+                    a: 'a2'
+                };
+            }
+        }
+        let test1 = obj1.b;
+        let test2 = obj1.b();
+        let test3 = obj1.c(obj1);
+        console.log(test2);
+        console.log(test3);
+    </script>
+</body>
+
+</html>

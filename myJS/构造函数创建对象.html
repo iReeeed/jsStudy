@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Player(name, age, height, weight, team) {
+            this.name = name;
+            this.age = age;
+            this.height = height;
+            this.weight = weight;
+            this.team = team;
+        }
+
+        var player1 = new Player("zhangsan", 18, "178", "120", "China");
+        var player2 = new Player("lisi", 22, "178", "120", "China");
+        Player.prototype.show = function() {
+            console.log(this.name);
+        }
+        player2.show();
+        player1.name = "zs";
+        player1.show();
+    </script>
+</body>
+
+</html>

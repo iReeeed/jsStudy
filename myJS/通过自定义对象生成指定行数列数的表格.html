@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自定义对象生成指定行数列数的表格</title>
+</head>
+
+<body>
+    <script>
+        function Table(row, col, width, height) {
+            this.row = row;
+            this.height = height;
+            this.width = width;
+            this.col = col;
+        }
+        Table.prototype.createTable = function() {
+            let start_str = '<table border="1" width="' + this.width + '"height="' + this.height + '"> ';
+            for (let i = 0; i < this.row; i++) {
+                let tr_str = '<tr>';
+                for (let j = 0; j < this.col; j++) {
+                    tr_str += '<td></td>'
+                }
+                tr_str += '</tr>';
+                start_str += tr_str;
+            }
+            start_str += '</table>';
+            console.log(start_str);
+            document.write(start_str);
+        }
+        var table1 = new Table(5, 5, 100, 100);
+        table1.createTable();
+    </script>
+
+</body>
+
+</html>
