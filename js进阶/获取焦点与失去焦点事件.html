@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>获取焦点与失去焦点</title>
+    <style>
+        input {
+            color: #999;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text" value="手机">
+    <script>
+        let ipt = document.querySelector('input');
+        ipt.onfocus = function() {
+            this.value = "";
+            this.style.color = 'black';
+        }
+        ipt.onblur = function() {
+                this.style.color = "#999";
+                if (this.value == "") {
+                    this.value = "手机";
+                }
+            }
+            //onchange只要值改变了就触发
+        ipt.onchange = function() {
+                console.log("changed");
+            }
+            //按下键盘触发，如果是鼠标改变值则不触发
+        ipt.addEventListener('keyup', function() {
+            console.log("keyup");
+        })
+    </script>
+
+</body>
+
+</html>
