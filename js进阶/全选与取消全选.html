@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>全选与取消全选</title>
+</head>
+<style>
+    th,
+    td {
+        width: 100px;
+        text-align: center;
+        padding: 5px;
+        border: 1px solid orange;
+    }
+    
+    th {
+        background: orange;
+    }
+</style>
+
+<body>
+    <div class="div">
+        <table border="0" cellspacing='0' cellpadding='0'>
+            <thead>
+                <th>
+                    <input type="checkbox" name="ck_All" id="ckAll">
+                </th>
+                <th>ID</th>
+                <th>商品名称</th>
+                <th>单价</th>
+            </thead>
+            <tbody id="tbody">
+                <tr>
+                    <td><input type="checkbox" name="ck" id="ck_one"></td>
+                    <td>1</td>
+                    <td>javaScript从入门到精通</td>
+                    <td>35</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="ck" id="ck_two"></td>
+                    <td>2</td>
+                    <td>Vue从入门到精通</td>
+                    <td>35</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="ck" id="ck_three"></td>
+                    <td>3</td>
+                    <td>HTML&CSS从入门到精通</td>
+                    <td>60</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script>
+        let ckAll = document.querySelector('#ckAll');
+        let cks = document.getElementById('tbody').getElementsByTagName('input');
+        //全选按钮的实现，全选按钮影响其他选择框
+        ckAll.onclick = function() {
+                for (let i = 0; i < cks.length; i++) {
+                    cks[i].checked = this.checked;
+                }
+            }
+            //其他选择框影响全选
+        for (let i = 0; i < cks.length; i++) {
+            cks[i].onclick = function() {
+                console.log(this.checked);
+                let count = 0;
+                for (let j = 0; j < cks.length; j++) {
+                    if (cks[j].checked) {
+                        count += 1;
+                    }
+                }
+                if (count == cks.length) {
+                    ckAll.checked = true;
+                } else {
+                    ckAll.checked = false;
+                }
+            }
+        }
+    </script>
+
+</body>
+
+</html>
