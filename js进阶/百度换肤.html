@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>百度换肤</title>
+</head>
+<style>
+    html,
+    body {
+        padding: 0;
+        margin: 0;
+    }
+    
+    ul,
+    li {
+        list-style: none;
+    }
+    
+    ul {
+        margin-left: 40%;
+    }
+    
+    li>img {
+        width: 80px;
+        height: 60px;
+    }
+    
+    li {
+        float: left;
+        border: 2px solid white;
+    }
+    
+    body {
+        background: url('images/img1.jpg');
+    }
+</style>
+
+<body>
+    <ul>
+        <li> <img src="images/img1.jpg" alt="" srcset=""> </li>
+        <li> <img src="images/img2.jpg" alt="" srcset=""></li>
+        <li> <img src="images/img3.jpg" alt="" srcset=""></li>
+        <li> <img src="images/img4.jpg" alt="" srcset=""></li>
+    </ul>
+    <script>
+        let imgs = document.querySelectorAll('img');
+        for (let i = 0; i < imgs.length; i++) {
+            imgs[i].onclick = function() {
+                document.body.style.backgroundImage = "url('" + this.src + "')";
+            }
+        }
+    </script>
+
+</body>
+
+</html>
