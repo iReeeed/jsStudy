@@ -6,9 +6,83 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>tab实现</title>
 </head>
+<style>
+    div {
+        margin-left: 35%;
+        margin-top: 10%;
+    }
+    
+    ul,
+    li {
+        list-style: none;
+    }
+    
+    li {
+        background: gray;
+        border: 1px solid black;
+        float: left;
+        padding: 10px 20px;
+    }
+    
+    .div {
+        display: none;
+    }
+    
+    .current {
+        display: block;
+    }
+    
+    .cur {
+        background: orange;
+    }
+</style>
 
 <body>
-
+    <div id="div">
+        <ul>
+            <li class="cur">首页</li>
+            <li>分类</li>
+            <li>活动</li>
+            <li>资讯</li>
+            <li>相关</li>
+            <li>联系我们</li>
+        </ul>
+        <br>
+    </div>
+    <div data-index='0' class="div current">
+        我是首页的内容
+    </div>
+    <div data-index='1' class="div">
+        我是分类的内容
+    </div>
+    <div data-index='2' class="div">
+        我是活动的内容
+    </div>
+    <div data-index='3' class="div">
+        我是资讯的内容
+    </div>
+    <div data-index='4' class="div">
+        我是相关的内容
+    </div>
+    <div data-index='5' class="div">
+        我是联系我们的内容
+    </div>
 </body>
+<script>
+    let lis = document.querySelectorAll('li');
+    let divs = document.querySelectorAll('.div');
+    for (let i = 0; i < lis.length; i++) {
+        lis[i].onclick = function() {
+            for (let i = 0; i < lis.length; i++) {
+                lis[i].style.backgroundColor = 'gray';
+            }
+            this.style.backgroundColor = 'orange';
+            for (let j = 0; j < divs.length; j++) {
+                divs[j].style.display = 'none';
+            }
+            divs[i].style.display = 'block';
+        }
+    }
+</script>
 
 </html>
