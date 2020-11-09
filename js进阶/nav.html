@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nav菜单栏</title>
+</head>
+<style>
+    ul,
+    li {
+        list-style: none;
+    }
+    
+    .nav>li {
+        float: left;
+    }
+    
+    ul {
+        padding: 0;
+    }
+    
+    li>ul>li {
+        border: 1px solid orange;
+        padding: 5px 5px;
+    }
+    
+    .nav>li {
+        padding: 10px 20px;
+    }
+    
+    .nav ul {
+        display: none;
+    }
+</style>
+
+<body>
+    <ul class="nav">
+        <li>
+            <a href="#">分类</a>
+            <ul>
+                <li>靴子</li>
+                <li>衣服</li>
+                <li>裤子</li>
+            </ul>
+
+        </li>
+        <li>
+            <a href="#">年龄段</a>
+            <ul>
+                <li>20岁以下</li>
+                <li>20~40</li>
+                <li>40以上</li>
+            </ul>
+
+        </li>
+        <li>
+            <a href="#">职业</a>
+            <ul>
+                <li>学生</li>
+                <li>程序员</li>
+                <li>教师</li>
+            </ul>
+        </li>
+    </ul>
+    <script>
+        let nav = document.querySelector('.nav');
+        let lis = nav.children;
+        for (let i = 0; i < lis.length; i++) {
+            lis[i].onmouseover = function() {
+                lis[i].children[1].style.display = 'block';
+            }
+            lis[i].onmouseout = function() {
+                lis[i].children[1].style.display = 'none';
+            }
+        }
+    </script>
+
+</body>
+
+</html>
