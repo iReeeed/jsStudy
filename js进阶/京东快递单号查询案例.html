@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>京东快递单号查询案例</title>
+</head>
+<style>
+    .tip {
+        height: 40px;
+        width: 200px;
+        background: white;
+        border: 1px solid orange;
+        font-size: 30px;
+    }
+    
+    .san {
+        width: 0;
+        height: 0;
+        border: 10px solid;
+        border-color: orange white white white;
+        margin-left: 50px;
+    }
+    
+    .con>input {
+        width: 200px;
+        height: 30px;
+        margin-top: 15px;
+    }
+</style>
+
+<body>
+    <div class="box">
+        <div>
+            <input type="text" class="tip">
+        </div>
+        <div class="san"></div>
+        <div class="con">
+            <input type="text" class="text">
+        </div>
+    </div>
+
+    <script>
+        let ipt = document.querySelector('.text');
+        let tip = document.querySelector('.tip');
+        ipt.addEventListener('keyup', function() {
+            tip.value = this.value;
+        })
+    </script>
+
+</body>
+
+</html>

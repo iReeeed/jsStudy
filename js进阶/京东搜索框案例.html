@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>京东搜索框案例</title>
+</head>
+<style>
+    html,
+    body {
+        text-align: center;
+    }
+    
+    input {
+        width: 300px;
+        height: 50px;
+    }
+</style>
+
+<body>
+    <input type="text">
+    <script>
+        let input = document.querySelector('input');
+        document.addEventListener('keyup', function(e) {
+            if (e.keyCode == 83) {
+                input.focus();
+            }
+        })
+    </script>
+</body>
+
+</html>
