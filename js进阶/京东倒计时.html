@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>京东倒计时</title>
+</head>
+<style>
+    html,
+    body {
+        text-align: center;
+        padding-top: 100px;
+    }
+    
+    span {
+        padding: 5px 8px;
+        background: black;
+        color: white;
+    }
+    
+    div {
+        background: red;
+        width: 160px;
+        height: 200px;
+        padding: 20px 30px;
+    }
+</style>
+
+<body>
+    <div>
+        <span class="hour">1</span><b>:</b>
+        <span class="minute">2</span><b>:</b>
+        <span class="second">3</span>
+        <h3>京东秒杀</h3>
+    </div>
+    <script>
+        //获取元素
+        let h = document.querySelector('.hour');
+        let m = document.querySelector('.minute');
+        let s = document.querySelector('.second');
+        let date = +new Date('2020-11-14 18:00:00');
+        timesUp()
+        setInterval(timesUp, 1000);
+
+        function timesUp() {
+            var nowDate = +Date.now();
+            var will = date - nowDate;
+            var day = Math.floor(will / (1000 * 60 * 60 * 24));
+            day = day < 10 ? '0' + day : day;
+            var hour = Math.floor(will / (1000 * 60 * 60)) % 24;
+            hour = hour < 10 ? '0' + hour : hour;
+            h.innerHTML = hour;
+            var min = Math.floor(will / (1000 * 60)) % 60;
+            min = min < 10 ? '0' + min : min;
+            m.innerHTML = min;
+            var second = Math.floor(will / (1000)) % 60;
+            second = second < 10 ? '0' + second : second;
+            s.innerHTML = second;
+        }
+    </script>
+</body>
+
+</html>
