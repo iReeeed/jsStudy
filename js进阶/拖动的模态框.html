@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>拖动的模态框</title>
+</head>
+<style>
+    html,
+    body {
+        padding: 0;
+        margin: 0;
+        text-align: center;
+    }
+    
+    .header {
+        font-size: 30px;
+    }
+    
+    .login {
+        display: none;
+        width: 500px;
+        height: 300px;
+        background: white;
+        z-index: 100;
+        position: absolute;
+        left: calc(50vw - 250px);
+        top: calc(50vh - 150px);
+        border-radius: 5px;
+        box-shadow: 0 0 5px 2px #888888;
+    }
+    
+    .login-bg {
+        display: none;
+        position: absolute;
+        background: rgb(88, 84, 84);
+        opacity: 0.9;
+        width: 100%;
+        height: calc(100vh);
+        left: 0;
+        top: 0;
+        z-index: 0;
+    }
+    
+    .title {
+        margin-top: 30px;
+    }
+    
+    .inputs {
+        margin-top: 30px;
+    }
+    
+    label,
+    input {
+        margin: 10px;
+    }
+    
+    label {
+        text-align: right;
+    }
+    
+    .title {
+        height: 30px;
+        width: 100%;
+    }
+</style>
+
+<body>
+    <div class="header">
+        点击，弹出模态框
+    </div>
+    <div class="login-bg">
+
+    </div>
+    <div class="login">
+        <div class="title">登录会员</div>
+        <div class="inputs">
+            <label for="">用户名：</label><input type="text">
+            <br>
+            <label for="">密 &nabla; 码：</label><input type="text">
+        </div>
+        <button style="margin-top:30px;padding: 8px 20px;">登录</button>
+
+    </div>
+
+    <script>
+        let entry = document.querySelector('.header');
+        let login = document.querySelector('.login');
+        let loginBG = document.querySelector('.login-bg');
+        let title = document.querySelector('.title');
+        entry.addEventListener('click', function() {
+            this.style.display = 'none';
+            loginBG.style.display = 'block';
+            login.style.display = 'block';
+        })
+        title.addEventListener('mouseover', function() {
+            this.style.cursor = 'move';
+        })
+        title.addEventListener('mousedown', function(e) {
+            let x = e.pageX - login.offsetLeft;
+            let y = e.pageY - login.offsetTop;
+            let flag = false;
+
+            function move(e) {
+                login.style.left = e.pageX - x + 'px';;
+                login.style.top = e.pageY - y + 'px';
+            }
+            document.addEventListener('mousemove', move);
+            document.addEventListener('mouseup', function() {
+                document.removeEventListener('mousemove', move);
+            })
+        })
+    </script>
+
+
+</body>
+
+</html>
