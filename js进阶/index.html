@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>获取location应用页面的url参数</title>
+</head>
+<style>
+    html,
+    body {
+        text-align: center;
+    }
+</style>
+
+<body>
+    <div></div>
+    <script>
+        let div = document.querySelector('div');
+        let str = location.search.substr(1);
+        let arr = str.split('=');
+        div.innerHTML = arr[1] + "欢迎光临！";
+    </script>
+
+</body>
+
+</html>
