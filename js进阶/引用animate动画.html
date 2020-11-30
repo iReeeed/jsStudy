@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>引用animate</title>
+</head>
+<style>
+    html,
+    body {
+        overflow-x: hidden;
+    }
+    
+    .bar {
+        position: absolute;
+        float: right;
+        right: 0px;
+        width: 40px;
+        height: 40px;
+        background: pink;
+        text-align: center;
+        line-height: 40px;
+    }
+    
+    .slidebar {
+        background: yellow;
+        width: 200px;
+        height: 40px;
+        position: absolute;
+        right: -200px;
+        top: 0;
+        z-index: 99;
+    }
+</style>
+
+<body>
+    <div class="bar">
+        <span><<</span>
+        <div class="slidebar">
+        </div>
+    </div>
+
+    <script src="js/animate.js"></script>
+    <script>
+        let span = document.querySelector('span');
+        let slidebar = document.querySelector('.slidebar');
+        span.addEventListener('mouseenter', function() {
+            animate(slidebar, -200);
+        })
+        span.addEventListener('mouseout', function() {
+            animate(slidebar, 0);
+        })
+    </script>
+
+</body>
+
+</html>

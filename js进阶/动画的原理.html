@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动画原理</title>
+</head>
+<style>
+    .pink {
+        position: absolute;
+        height: 100px;
+        width: 100px;
+        background: pink;
+    }
+</style>
+
+<body>
+    <div class="pink"></div>
+    <script>
+        /* 通过定时器实现offsetLeft不断增加的效果，实现动画 
+                                注意，元素需要加上定位才能给left赋值
+                                */
+        let div = document.querySelector('div');
+        let timer = setInterval(function() {
+            if (div.offsetLeft >= 500) {
+                clearInterval(timer);
+            } else {
+                div.style.left = div.offsetLeft + 2 + 'px';
+            }
+        }, 30)
+    </script>
+
+</body>
+
+</html>

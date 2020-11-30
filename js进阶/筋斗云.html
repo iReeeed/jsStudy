@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>筋斗云</title>
+    <style>
+        .nav {
+            position: relative;
+        }
+        
+        ul {
+            position: absolute;
+            padding: 0;
+            margin: 0;
+            left: 0;
+        }
+        
+        ul>li {
+            list-style: none;
+            float: left;
+            width: 80px;
+            background: pink;
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+        }
+        
+        .cloud {
+            position: absolute;
+            width: 80px;
+            background: white;
+            opacity: 0.5;
+            height: 30px;
+            float: left;
+            z-index: 2;
+        }
+    </style>
+    <script src="js/animate.js"></script>
+</head>
+
+<body>
+    <div class="nav">
+        <div class="cloud"></div>
+        <ul>
+            <li>首页</li>
+            <li>资讯</li>
+            <li>详情</li>
+            <li>联系</li>
+            <li>邮件</li>
+            <li>新闻</li>
+        </ul>
+    </div>
+    <script>
+        let nav = document.querySelector('.nav');
+        let cloud = nav.querySelector('.cloud');
+        let ul = nav.querySelector('ul');
+        let lis = ul.children;
+        //cloud的还原位置
+        let current = 0;
+        for (let i = 0; i < lis.length; i++) {
+            lis[i].addEventListener('mouseenter', function() {
+                animate(cloud, this.offsetLeft);
+            });
+            lis[i].addEventListener('mouseleave', function() {
+                animate(cloud, current);
+            });
+            lis[i].addEventListener('click', function() {
+                current = this.offsetLeft;
+                animate(cloud, current);
+            });
+        }
+    </script>
+
+</body>
+
+</html>

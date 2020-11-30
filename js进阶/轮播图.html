@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>轮播图</title>
+    <style>
+        .imgs {
+            width: 300px;
+            background: orange;
+            height: 300px;
+            position: relative;
+            left: 40%;
+            overflow: hidden;
+        }
+        
+        .pre {
+            position: absolute;
+            left: 5px;
+            top: 40%;
+        }
+        
+        .next {
+            position: absolute;
+            right: 5px;
+            top: 40%;
+        }
+        
+        .pre,
+        .next {
+            width: 48px;
+            z-index: 5;
+            display: none;
+        }
+        
+        .img {
+            width: 300px;
+            height: 200px;
+        }
+        
+        .ul1 {
+            width: 600%;
+            position: absolute;
+            left: 0;
+            padding: 0;
+        }
+        
+        ul,
+        li {
+            list-style: none;
+        }
+        
+        ol {
+            position: absolute;
+            bottom: -10px;
+        }
+        
+        .ul1 li {
+            float: left;
+            margin-top: 50px;
+            left: 0;
+        }
+        
+        ol li {
+            float: left;
+            width: 8px;
+            height: 8px;
+            border: 3px solid white;
+            border-radius: 50%;
+            margin-left: 5px;
+        }
+        
+        .current {
+            background: white;
+        }
+        
+        .trun:hover {
+            cursor: pointer;
+        }
+        
+        ol>li:hover {
+            cursor: pointer;
+        }
+    </style>
+    <script src="js/animate.js"></script>
+    <script src="js/轮播图.js"></script>
+
+</head>
+
+
+<body>
+    <div class="imgs">
+        <img class="pre trun " src="images/向左.png" alt="">
+        <img class="next trun " src="images/向右.png" alt="">
+        <ul class="ul1">
+            <li><img src="images/img1.jpg" alt="" class="img"></li>
+            <li><img src="images/img2.jpg" alt="" class="img"></li>
+            <li><img src="images/img3.jpg" alt="" class="img"></li>
+            <li><img src="images/img4.jpg" alt="" class="img"></li>
+
+        </ul>
+        <ol class="ul2">
+
+        </ol>
+
+    </div>
+
+</body>
+
+</html>

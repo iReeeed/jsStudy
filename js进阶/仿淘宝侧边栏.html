@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>仿淘宝侧边栏</title>
+</head>
+<style>
+    html,
+    body {
+        padding: 0;
+        margin: 0;
+    }
+    
+    .header {
+        height: 300px;
+        width: 90%;
+        background: blue;
+    }
+    
+    .main {
+        height: 500px;
+        width: 90%;
+        background: pink;
+    }
+    
+    .footer {
+        height: 600px;
+        width: 90%;
+        background: yellow;
+    }
+    
+    div {
+        margin-top: 10px;
+    }
+    
+    .com {
+        float: left;
+        width: 90%;
+    }
+    
+    .aside {
+        position: absolute;
+        float: right;
+        top: 400px;
+        right: 30px;
+        width: 8%;
+        height: 200px;
+        background: orange;
+    }
+    
+    span {
+        display: none;
+    }
+    
+    .foot {
+        height: 600px;
+    }
+</style>
+
+<body>
+    <div class="com">
+        <div class="header">header</div>
+        <div class="main">main</div>
+        <div class="footer">footer</div>
+        <div class="foot">foot</div>
+    </div>
+    <div class="aside">
+        侧边栏
+        <span class="goBack">返回顶部</span>
+    </div>
+    <script>
+        let aside = document.querySelector('.aside');
+        let main = document.querySelector('.main');
+        let footer = document.querySelector('.footer');
+        let span = document.querySelector('span');
+        let h = main.offsetTop;
+        let asideY = aside.offsetTop - main.offsetTop;
+        let footerTop = footer.offsetTop;
+        document.addEventListener('scroll', function() {
+            if (window.pageYOffset >= h) {
+                aside.style.position = 'fixed';
+                aside.style.top = asideY + 'px';
+            } else {
+                aside.style.position = 'absolute';
+                aside.style.top = 400 + 'px';
+            }
+
+            if (window.pageYOffset >= footer.offsetTop) {
+                span.style.display = 'block';
+            } else {
+                span.style.display = 'none';
+            }
+
+
+        })
+    </script>
+
+</body>
+
+</html>
