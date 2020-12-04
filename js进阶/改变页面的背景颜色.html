@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>改变页面的背景颜色</title>
+</head>
+
+<body>
+    <label for="">
+        请选择页面的背景颜色：
+    </label>
+    <select name="color" id="">
+        <option value="green">绿色</option>
+        <option value="red">红色</option>
+        <option value="blue">蓝色</option>
+        <option value="yellow">黄色</option>
+    </select>
+
+    <script>
+        let sel = document.querySelector('select');
+        let color = sel.value;
+        document.bgColor = color;
+        sel.addEventListener('change', function() {
+            document.bgColor = this.value;
+        })
+    </script>
+</body>
+
+</html>

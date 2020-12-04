@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>touch触摸事件</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <script>
+        let div = document.querySelector('div');
+        div.addEventListener('touchstart', function(e) {
+            console.log(e);
+            //touches正在触摸手机屏幕的所有手指列表
+            //targetTouches正在触摸当前元素的所有手指列表
+            //changedTouches 手指状态发生改变的手指列表，从无到有，从有到无
+
+            //当手指离开时，touches和targetTouches没有列表，而changedTouches有列表
+        })
+        div.addEventListener('touchmove', function() {
+            console.log(2);
+        })
+        div.addEventListener('touchend', function() {
+            console.log(3);
+        })
+    </script>
+
+</body>
+
+</html>

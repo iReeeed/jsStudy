@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动态添加头像</title>
+    <style>
+        #file {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="button" value="添加用户头像" class="btn">
+    <input type="file" value="添加用户头像" id="file">
+    <div class="imgs"></div>
+
+    <script>
+        let btn = document.querySelector('.btn');
+        let file = document.querySelector('#file');
+        let div = document.querySelector('div');
+        let imgPath = '';
+        btn.addEventListener('click', function() {
+            file.click();
+        })
+        file.addEventListener('change', function() {
+            let files = this.files;
+            for (const file of files) {
+                const image = document.createElement('img');
+                //创建file文件的url
+                image.src = URL.createObjectURL(file);
+                image.style.width = 200 + 'px';
+                image.style.height = 300 + 'px';
+                div.append(image);
+            }
+        })
+    </script>
+</body>
+
+</html>
